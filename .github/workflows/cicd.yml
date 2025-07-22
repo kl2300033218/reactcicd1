@@ -1,4 +1,4 @@
- name: CI/CD React APP
+name: CI/CD React APP
 
 on:
   push:
@@ -25,3 +25,7 @@ jobs:
       - name: Build the Project
         run: npm run build
       
+      # #Configure Git Identity
+      # - name: Configure Git
+      #   run: |
+      #     git config --global user.name
