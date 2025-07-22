@@ -1,0 +1,31 @@
+name: CICD P-1 App
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      name: Checkout Code
+      uses: actions/checkout@v4
+
+      name: Setup node.js
+      uses: acations/setup-node@v4
+      with:
+        node-version: 22.14.0
+      
+      name: Install CI
+      run: npm ci
+
+      name: Build the project
+      run:  npm run build
+
+      # #configure git identity
+      # name: Configure Git
+      # run:  |
+      #   git config --global user.name
