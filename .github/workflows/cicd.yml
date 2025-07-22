@@ -1,4 +1,4 @@
-name: CICD P-1 App
+ name: CI/CD React APP
 
 on:
   push:
@@ -11,21 +11,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      name: Checkout Code
-      uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-      name: Setup node.js
-      uses: acations/setup-node@v4
-      with:
-        node-version: 22.14.0
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.14.0
+
+      - name: Install CI
+        run: npm ci
+
+      - name: Build the Project
+        run: npm run build
       
-      name: Install CI
-      run: npm ci
-
-      name: Build the project
-      run:  npm run build
-
-      # #configure git identity
-      # name: Configure Git
-      # run:  |
-      #   git config --global user.name
