@@ -32,7 +32,7 @@ jobs:
         name: Configure Git
         run: |
          git config --global user.name kl2300033218
-         git config --global user.email klu2300033218@kluniversity.in
+         git config --global user.email ananthaputta708@gmail.com
 
         #deploy into github pages
         name: Deployment
